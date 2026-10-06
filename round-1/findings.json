@@ -1,17 +1,105 @@
 {
   "round": "round-1",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-016",
+  "queries_used": 65,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "recent_strikes",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [8, 15],
+        "summary": "Tested during initial exploration in Queries #1–#15; setting recent_strikes to 5 heavily penalized baseline scores down toward 0.0560."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "report_ratio",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [8, 15],
+        "summary": "Evaluated during initial risk parameter tests in Queries #1–#15; setting report_ratio to 1 acts as a primary penalty driver."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "account_age_days",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [8, 11],
+        "summary": "Isolated in Query #11 where setting account_age_days to max (75) pushed the base score threshold upward toward approval."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "mentions",
+      "direction": "neutral",
+      "strength": "none",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [24, 29],
+        "summary": "Varying mentions between 2.85 (Query #24) and 6 (Query #29) produced zero score shift."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "reach",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [29, 30],
+        "summary": "Increasing reach from 0 in Query #29 to 100 in Query #30 caused the sharp red dip on the graph (-0.4737 penalty, dropping from 0.6729 to 0.1992)."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "surface",
+      "direction": "non_linear",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [24, 34],
+        "summary": "Switching surface from A in Query #24 to B in Query #34 moved the baseline score up to 0.7010 under identical parameters."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "post_length",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.95,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [34, 35],
+        "summary": "Lowering post_length from 100 in Query #34 to 75 in Query #35 caused the score drop visible at Query #35 (from 0.7010 to 0.6163)."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_accounts",
+      "direction": "neutral",
+      "strength": "none",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [36, 44],
+        "summary": "Tested during the flat plateau region between Queries #36 and #44; changing linked_accounts yielded zero variance in score output."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "reputation",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [34, 45],
+        "summary": "Lowering reputation from 900 to 300 in Query #45 created the steep upward jump visible on the graph, driving the score from ~0.70 to 0.9478 (APPROVE)."
       }
     }
   ]
