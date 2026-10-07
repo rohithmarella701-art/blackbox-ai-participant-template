@@ -1,17 +1,50 @@
 {
-  "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "round": "round-1",
+  "team": "BB-014",
+  "queries_used": 86,
   "claims": [
     {
+      "type": "ignored_feature",
+      "feature": "linked_accounts",
+      "direction": "neutral",
+      "strength": "zero",
+      "confidence": 1.0,
+      "evidence": {
+        "query_ids": [79, 80, 83],
+        "summary": "Varying linked_accounts across 7.8, 15.6, and 20.0 holding all other parameters fixed produced an identical output score of 0.9900, confirming zero feature impact."
+      }
+    },
+    {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "months_active",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [81, 82, 83],
+        "summary": "Increasing months_active from 0.0 to 6.4 and 32.2 steadily decreases the moderation score from 0.9900 down to 0.9640 (~ -0.0008 per active month)."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "post_length",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.95,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [85, 86],
+        "summary": "Reducing post_length from 100 to 17.5 causes a steep score decline from 0.9900 to 0.9275, demonstrating a strong positive scaling effect."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "reputation",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [73, 74, 75],
+        "summary": "Increasing reputation above 300 causes an immediate penalty to approval score (e.g. 350 yields 0.9858 vs 0.9900 at 300), confirming inverse logic."
       }
     }
   ]
