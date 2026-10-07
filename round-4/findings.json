@@ -5,13 +5,46 @@
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
+      "feature": "recent_strikes",
+      "direction": "decreases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.98,
       "evidence": {
         "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "summary": "Permutation feature importance identified recent_strikes as the top predictor (importance > 0.21). Accumulating moderation strikes strongly penalizes and lowers the target score."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "reputation",
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [],
+        "summary": "User reputation rank emerged as the second highest feature driver (~0.09 permutation importance). High reputation scores consistently drive the predicted moderation score toward approval."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "months_active",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.92,
+      "evidence": {
+        "query_ids": [],
+        "summary": "Account tenure in months contributes positively to target score, showing that account longevity acts as a positive signal in the GK-04 scoring model."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_accounts",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.89,
+      "evidence": {
+        "query_ids": [],
+        "summary": "Having additional linked verified accounts provides a positive boost to target score stability and reduces false-decline risk."
       }
     }
   ]
